@@ -15,6 +15,7 @@ const social = require("./routes/social");
 const address = require("./routes/address");
 const logo = require("./routes/logo");
 const compliance = require("./routes/compliance");
+const pages = require("./routes/pages");
 const expressSession = require('express-session');
 const expressVisitorCounter = require('express-visitor-counter');
 require("dotenv").config();
@@ -41,6 +42,7 @@ app.use("/social", social);
 app.use("/address", address);
 app.use("/logo", logo);
 app.use("/compliance", compliance);
+app.use("/page", pages);
 
 // console.log(db.collection('counters'));
 
