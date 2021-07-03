@@ -16,6 +16,10 @@ const address = require("./routes/address");
 const logo = require("./routes/logo");
 const compliance = require("./routes/compliance");
 const pages = require("./routes/pages");
+const photo = require("./routes/photos");
+const video = require("./routes/videos");
+const press = require("./routes/press");
+const people = require("./routes/people");
 const expressSession = require('express-session');
 const expressVisitorCounter = require('express-visitor-counter');
 require("dotenv").config();
@@ -43,6 +47,10 @@ app.use("/address", address);
 app.use("/logo", logo);
 app.use("/compliance", compliance);
 app.use("/page", pages);
+app.use("/photo", photo);
+app.use("/video", video);
+app.use("/press", press);
+app.use("/people", people);
 
 // console.log(db.collection('counters'));
 
