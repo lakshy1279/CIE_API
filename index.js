@@ -20,13 +20,12 @@ const photo = require("./routes/photos");
 const video = require("./routes/videos");
 const press = require("./routes/press");
 const people = require("./routes/people");
-const expressSession = require('express-session');
-const expressVisitorCounter = require('express-visitor-counter');
+const websites = require("./routes/website");
+const expressSession = require("express-session");
+const expressVisitorCounter = require("express-visitor-counter");
 require("dotenv").config();
 
-
-const MongoClient = require('mongodb').MongoClient;
-
+const MongoClient = require("mongodb").MongoClient;
 
 const db = require("./config/mongoose");
 app.use(cors());
@@ -51,23 +50,26 @@ app.use("/photo", photo);
 app.use("/video", video);
 app.use("/press", press);
 app.use("/people", people);
+app.use("/websites", websites);
 
 // console.log(db.collection('counters'));
 
 (async () => {
-  const dbConnection = await MongoClient.connect(process.env.MONGODB, { useUnifiedTopology: true });
-  const counters = dbConnection.db().collection('counters');
-  app.enable('trust proxy');
-  app.use(expressSession({ secret: 'secret', resave: false, saveUninitialized: true }));
+  const dbConnection = await MongoClient.connect(process.env.MONGODB, {
+    useUnifiedTopology: true,
+  });
+  const counters = dbConnection.db().collection("counters");
+  app.enable("trust proxy");
+  app.use(
+    expressSession({ secret: "secret", resave: false, saveUninitialized: true })
+  );
   app.use(expressVisitorCounter({ collection: counters }));
-  app.get('/', async (req, res, next) => {
+  app.get("/", async (req, res, next) => {
     let data = await counters.find().toArray();
     console.log(data);
-    res.json(await counters.find().toArray())
+    res.json(await counters.find().toArray());
   });
 })();
-
-
 
 app.listen(port, function (err) {
   if (err) {
