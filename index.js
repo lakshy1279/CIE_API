@@ -21,6 +21,7 @@ const video = require("./routes/videos");
 const press = require("./routes/press");
 const people = require("./routes/people");
 const websites = require("./routes/website");
+const notification=require("./routes/notification");
 const expressSession = require("express-session");
 const expressVisitorCounter = require("express-visitor-counter");
 require("dotenv").config();
@@ -51,6 +52,7 @@ app.use("/video", video);
 app.use("/press", press);
 app.use("/people", people);
 app.use("/websites", websites);
+app.use("/notification",notification);
 
 // console.log(db.collection('counters'));
 
