@@ -9,7 +9,9 @@ const MenuSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  url:{
+    type:String
+  },
   date: {
     type: Date,
     default: Date(),
