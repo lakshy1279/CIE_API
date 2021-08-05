@@ -17,6 +17,7 @@ const logo = require("./routes/logo");
 const compliance = require("./routes/compliance");
 const pages = require("./routes/pages");
 const photo = require("./routes/photos");
+const carousal = require("./routes/carousal");
 const video = require("./routes/videos");
 const press = require("./routes/press");
 const people = require("./routes/people");
@@ -48,6 +49,7 @@ app.use("/logo", logo);
 app.use("/compliance", compliance);
 app.use("/page", pages);
 app.use("/photo", photo);
+app.use("/carousal", carousal)
 app.use("/video", video);
 app.use("/press", press);
 app.use("/people", people);
