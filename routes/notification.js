@@ -23,13 +23,11 @@ let storage = new CloudinaryStorage({
 })
 let uploading = multer({ storage: storage });
 
-router.post("/save", uploading.single("Thumbnail"), async (req, res) => {
+router.post("/save", async (req, res) => {
     console.log("request received");
     console.log(req.body);
-    console.log(req.file);
     const Data=new Notification({
         title:req.body.title,
-        Image:req.file.path,
         description:req.body.description,
     })
     Data.save((err,data)=>{
@@ -64,12 +62,10 @@ router.get("/fetch/:id", async (req, res) => {
   });
   router.put(
     "/save/:id",
-    uploading.single("Thumbnail"),
     async (req, res) => {
       const { id } = req.params;
       const Data={
         title:req.body.title,
-        Image:req.file.path,
         description:req.body.description
     }
   

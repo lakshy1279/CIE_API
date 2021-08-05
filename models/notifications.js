@@ -5,9 +5,6 @@ const NotificationSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Image: {
-        type: String,
-    },
     description:{
         type:String
     }
