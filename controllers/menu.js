@@ -33,6 +33,7 @@ const AddMenu = async (req, res) => {
     menu,
     description,
     date,
+    url
   });
 
   try {
